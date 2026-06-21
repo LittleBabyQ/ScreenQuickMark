@@ -6,7 +6,7 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="ScreenQuickMark"
+    Name="BabyQ.ScreenQuickMark"
     Publisher="CN=A2ED7293-6B8B-4742-BCB7-D30AAA7E1430"
     Version="1.0.0.0" />
 
