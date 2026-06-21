@@ -83,7 +83,10 @@ Screen QuickMark is currently in early release preparation. The first public rel
 
 ## License
 
-License information will be added before public release.
+This project is source-available for personal and non-commercial use only.
+Commercial use, redistribution, sublicensing, or publishing derivative commercial products is not permitted without explicit permission from the copyright holder.
+
+See [LICENSE](LICENSE) for details.
 
 ## Author
 
