@@ -108,6 +108,7 @@ public sealed class OverlayWindow : IDisposable
             _screenX, _screenY, _screenW, _screenH,
             PInvoke.SWP_NOACTIVATE | PInvoke.SWP_FRAMECHANGED | PInvoke.SWP_SHOWWINDOW);
         PInvoke.ShowWindow(_hwnd, PInvoke.SW_SHOW);
+        Owner.BringToolbarToFront();
 
         // 初始：标注模式（不穿透）
         PInvoke.DisableClickThrough(_hwnd);
@@ -197,6 +198,7 @@ public sealed class OverlayWindow : IDisposable
         PInvoke.SetWindowPos(_hwnd, PInvoke.HWND_TOPMOST,
             _screenX, _screenY, _screenW, _screenH,
             PInvoke.SWP_NOACTIVATE | PInvoke.SWP_FRAMECHANGED);
+        Owner.BringToolbarToFront();
     }
 
     // ─── 低级键盘钩子 ────────────────────────────
@@ -318,6 +320,7 @@ public sealed class OverlayWindow : IDisposable
         var size = new PInvoke.SIZE { cx = _screenW, cy = _screenH };
         var pt = new PInvoke.POINT();
         PInvoke.UpdateLayeredWindow(_hwnd, IntPtr.Zero, ref pt, ref size, _hdcMem, ref pt, 0, ref blend, PInvoke.ULW_ALPHA);
+        Owner.BringToolbarToFront();
     }
 
     private CanvasSolidColorBrush GetBrush(Windows.UI.Color c)

@@ -258,10 +258,19 @@ public sealed partial class MainWindow : Window
         }
     }
 
+    internal void BringToolbarToFront()
+    {
+        if (!_toolbarVisible) return;
+        PInvoke.SetWindowPos(_hwnd, PInvoke.HWND_TOPMOST,
+            0, 0, 0, 0,
+            PInvoke.SWP_NOMOVE | PInvoke.SWP_NOSIZE | PInvoke.SWP_NOACTIVATE | PInvoke.SWP_SHOWWINDOW);
+    }
+
     private void ToggleToolbar()
     {
         _toolbarVisible = !_toolbarVisible;
         PInvoke.ShowWindow(_hwnd, _toolbarVisible ? PInvoke.SW_SHOW : PInvoke.SW_HIDE);
+        BringToolbarToFront();
     }
 
     private void SwitchPenText()
